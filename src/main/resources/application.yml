@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: dev
+
+#    include: oauth
+
+#  session:
+#    jdbc:
+#      initialize-schema: always
+#    store-type: jdbc
+
+
+#  servlet:
+#    multipart:
+#      max-file-size: 128MB
+#      max-request-size: 128MB
