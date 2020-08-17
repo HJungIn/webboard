@@ -1,0 +1,18 @@
+<p> 공지 </p>
+
+
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+        </tr>
+    {{#allNotices}}
+
+        <tr>
+            <td>{{id}}</td>
+            <td><a href="/notice/{{id}}"> {{title}} </a></td>
+        </tr>
+
+    {{/allNotices}}
+    </table>
+
