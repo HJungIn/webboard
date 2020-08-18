@@ -1,8 +1,8 @@
 spring:
   profiles:
     active: dev
+    include: oauth
 
-#    include: oauth
 
 #  session:
 #    jdbc:

@@ -1,4 +1,15 @@
 <h2> 밴드 </h2>
 <hr>
 <a href="/notice"> 공지사항 </a><br>
+<br><br>
 
+
+{{^what}}
+    <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
+{{/what}}
+{{#what}}
+    Logged in as: <span id="user">{{what}}</span>
+    <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+    <hr>
+
+{{/what}}
