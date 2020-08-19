@@ -1,0 +1,14 @@
+내 그룹들 보여줘ㅏ
+
+<table>
+    <tr>
+        <th>모임명</th>
+    </tr>
+    {{#mygroupslist}}
+
+        <tr>
+            <td><a href="/mygroups/{{id}}"> {{name}} </a></td>
+        </tr>
+
+    {{/mygroupslist}}
+</table>
