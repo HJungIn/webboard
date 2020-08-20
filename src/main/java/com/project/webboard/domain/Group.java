@@ -27,6 +27,9 @@ public class Group {
     @OneToMany(mappedBy = "group", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<UserGroup> members = new ArrayList<>();
 
+    @OneToMany(mappedBy = "currentgroup", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Post> posts = new ArrayList<>();
+
     @Builder
     public Group(String name, User owner){
         this.name = name;

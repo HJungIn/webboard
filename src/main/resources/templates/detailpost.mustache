@@ -1,0 +1,13 @@
+
+{{#postById}}
+    <h3>{{title}}</h3>
+    작성자 : {{publisher.name}}
+    <hr>
+    <p>{{content}}</p>
+
+    {{#samePublisher}}
+    <hr>
+    <a href="/mygroups/{{groupid}}/deletepost/{{id}}">  <input type="button" style="background-color: #c82333" value="삭제하기"> </a>
+    {{/samePublisher}}
+
+{{/postById}}

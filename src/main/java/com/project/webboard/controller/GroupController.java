@@ -28,7 +28,7 @@ public class GroupController {
         if(user!= null) {
             model.addAttribute("currentUser", user);
         }
-        System.out.println("makegroup == user.getName() = " + user.getName());
+
         return "makegroup";
     }
 
@@ -76,8 +76,12 @@ public class GroupController {
     @RequestMapping("/mygroups/{idx}")
     public String groupMainPage(Model model, @PathVariable("idx") Long id){
 
+        SessionUser user = (SessionUser)httpSession.getAttribute("user");
+
         Group group = groupService.getGroup(id);
         model.addAttribute("group", group);
+
+        model.addAttribute("posts", group.getPosts());
 
         return "groupmainpage";
     }

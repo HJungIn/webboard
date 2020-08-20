@@ -1,3 +1,25 @@
-라라
-<h2>{{group.name}}입니다~~</h2>
+<h2>"{{group.name}}"입니다~~</h2>
 <p> 만든이  : {{group.owner.name}}</p>
+
+<hr>
+
+<a href="/mygroups/{{group.id}}/makepost"> 새 글쓰기 </a> &nbsp; &nbsp;
+<br>
+
+<table>
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>글쓴이</th>
+    </tr>
+    {{#posts}}
+
+        <tr>
+            <td>{{id}}</td>
+            <td> <a href="/mygroups/{{group.id}}/post/{{id}}"> {{title}} </a></td>
+            <td>{{publisher.name}}</td>
+
+        </tr>
+
+    {{/posts}}
+</table>
