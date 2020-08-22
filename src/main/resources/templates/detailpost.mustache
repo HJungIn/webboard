@@ -3,6 +3,14 @@
     <h3>{{title}}</h3>
     작성자 : {{publisher.name}}
     <hr>
+
+    <div>
+        {{#jsonbooks}}
+            <img src="{{image}}"> "{{title}}" {{author}} <a href="{{link}}">보러가기</a>
+            <br>
+        {{/jsonbooks}}
+    </div>
+
     <p>{{content}}</p>
 
     {{#samePublisher}}

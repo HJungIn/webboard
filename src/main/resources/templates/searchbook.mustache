@@ -1,0 +1,26 @@
+<form action="/searchbookSubmit">
+    <h3> 도서 </h3>
+    도서 찾기 : <input type="text" name="title">
+    <input type="submit" value="찾기"/> &nbsp;
+</form>
+
+<hr>
+<form action="/searchbookSubmitSubmit">
+    <table>
+        <tr>
+            <th>체크</th>
+            <th>이미지</th>
+            <th>제목</th>
+            <th> <input type="submit" value="추가하기"> </th>
+        </tr>
+        {{#books}}
+
+            <tr>
+                <td><input type="checkbox" name="checkbook" value="{{isbn}}"> </td>
+                <td><img src="{{image}}"></td>
+                <td>{{title}}</td>
+            </tr>
+
+        {{/books}}
+    </table>
+</form>

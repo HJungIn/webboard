@@ -1,11 +1,40 @@
+
 <h2>새 글 쓰기</h2>
-<form action="/mygroups/{{groupid}}/makepostsubmit" accept-charset="UTF-8" method="post">
 
-    <h4> 제목 </h4>
-    <input type="text" name="title">
+<form action="/mygroups/{{groupid}}/searchbookSubmit">
+    <h3> 도서 </h3>
+    도서 찾기 : <input type="text" name="title">
+    <input type="submit" value="찾기"/> &nbsp;
+</form>
 
-    <h3> 내용 </h3>
-    <textarea name="content" cols="40" rows="8"></textarea>
+<form action="/mygroups/{{groupid}}/makepostsubmit" class="makepostclass" accept-charset="UTF-8" method="post">
+    <div style="width:100%; height:200px; overflow:auto; border: double aquamarine" >
+        <table width="100%">
+            <tr>
+                <th>체크</th>
+                <th>이미지</th>
+                <th>제목</th>
+            </tr>
+            {{#books}}
+                {{.}}
+                <tr>
+                    <td><input type="checkbox" name="checkbook" value="{{isbn}}"> </td>
+                    <td><img src="{{image}}"></td>
+                    <td>{{title}}</td>
+                </tr>
+
+            {{/books}}
+        </table>
+    </div>
+
+
+        <h4> 제목 </h4>
+        <input type="text" name="title">
+
+        <h4> 내용 </h4>
+        <textarea name="content" cols="40" rows="8"></textarea>
+        <br>
 
     <input class="btn btn-primary" type="submit" value="만들기"/> &nbsp; &nbsp;
 </form>
+

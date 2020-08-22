@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -26,12 +27,16 @@ public class Post {
     @JoinColumn(name = "group_id")
     private Group currentgroup;
 
+    @ElementCollection(targetClass=String.class)
+    private List<String> books;
+
     @Builder
-    public Post(String title, String content, User publisher, Group currentgroup){
+    public Post(String title, String content, User publisher, Group currentgroup, List<String> books){
         this.title = title;
         this.content = content;
         this.publisher = publisher;
         this.currentgroup = currentgroup;
+        this.books = books;
         this.setPublisher(publisher);
         this.setCurrentgroup(currentgroup);
     }
