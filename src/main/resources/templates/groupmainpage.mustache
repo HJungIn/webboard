@@ -2,9 +2,16 @@
 <p> 만든이  : {{group.owner.name}}</p>
 
 <hr>
+{{#my}}
+    <a href="/mygroups/{{group.id}}/makepost"> 새 글쓰기 </a> &nbsp; &nbsp;
+    <br>
+{{/my}}
+{{^my}}
+    <a href="/groups/{{group.id}}/join"> 가입하기 </a> &nbsp; &nbsp;
+    <br>
+{{/my}}
 
-<a href="/mygroups/{{group.id}}/makepost"> 새 글쓰기 </a> &nbsp; &nbsp;
-<br>
+
 
 <table>
     <tr>
@@ -16,7 +23,13 @@
 
         <tr>
             <td>{{id}}</td>
+            {{#my}}
             <td> <a href="/mygroups/{{group.id}}/post/{{id}}"> {{title}} </a></td>
+            {{/my}}
+            {{^my}}
+                <td> <a href="/groups/{{group.id}}/post/{{id}}"> {{title}} </a></td>
+            {{/my}}
+
             <td>{{publisher.name}}</td>
 
         </tr>

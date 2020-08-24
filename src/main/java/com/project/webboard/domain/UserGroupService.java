@@ -19,4 +19,12 @@ public class UserGroupService {
     public void saveUserGroup(UserGroup userGroup) {
         userGroupRepository.save(userGroup);
     }
+
+    public boolean checkUserGroupByUserAndGroup(User user, Group group) {
+        UserGroup byUserAndGroup = userGroupRepository.findByUserAndGroup(user, group);
+        if(byUserAndGroup==null)
+            return false;
+        else
+            return true;
+    }
 }

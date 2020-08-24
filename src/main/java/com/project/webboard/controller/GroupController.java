@@ -67,22 +67,53 @@ public class GroupController {
 
         //내가 속한 그룹애들 가져오기
         model.addAttribute("mygroupslist",userGroupService.getUserGroup(currentUser));
-
+        model.addAttribute("my",true);
 
 
         return "mygroups";
     }
 
-    @RequestMapping("/mygroups/{idx}")
+    @RequestMapping( value = {"/mygroups/{idx}", "/groups/{idx}"})
     public String groupMainPage(Model model, @PathVariable("idx") Long id){
-
-        SessionUser user = (SessionUser)httpSession.getAttribute("user");
 
         Group group = groupService.getGroup(id);
         model.addAttribute("group", group);
-
         model.addAttribute("posts", group.getPosts());
 
+
+        SessionUser user = (SessionUser)httpSession.getAttribute("user");
+        if(user==null){
+            model.addAttribute("my", false);
+        }
+        else{
+            User currentUser = userService.getUser(user.getEmail());
+            if( userGroupService.checkUserGroupByUserAndGroup(currentUser, group) ) {
+                model.addAttribute("my", true);
+            }
+            else{
+                model.addAttribute("my", false);
+            }
+        }
+
         return "groupmainpage";
+    }
+
+    @RequestMapping("/findgroup")
+    public String findGroup(Model model){
+        model.addAttribute("mygroupslist",groupService.getAllGroups());
+        model.addAttribute("my",false);
+        return "mygroups";
+    }
+
+    @RequestMapping("/groups/{groupid}/join")
+    public String joinGroup(Model model, @PathVariable("groupid") Long id){
+        SessionUser user = (SessionUser)httpSession.getAttribute("user");
+        User currentUser = userService.getUser(user.getEmail());
+
+        Group group = groupService.getGroup(id);
+        UserGroup userGroup = new UserGroup(currentUser,group);
+        userGroupService.saveUserGroup(userGroup);
+
+        return "redirect:/mygroups";
     }
 }

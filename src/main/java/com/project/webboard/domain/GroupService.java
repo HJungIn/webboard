@@ -3,7 +3,7 @@ package com.project.webboard.domain;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -16,4 +16,8 @@ public class GroupService {
     }
 
     public Group getGroup(Long id) { return groupRepository.findGroupById(id);  }
+
+    public List<Group> getAllGroups() {
+        return groupRepository.findAll();
+    }
 }

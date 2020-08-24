@@ -25,7 +25,7 @@ public class PostController {
 
     private final HttpSession httpSession;
 
-    @RequestMapping("/mygroups/{groupid}/post/{postid}")
+    @RequestMapping(value = {"/mygroups/{groupid}/post/{postid}", "/groups/{groupid}/post/{postid}"})
     private String detailPost(Model model,
                               @PathVariable("groupid") Long groupid,
                               @PathVariable("postid") Long postid ){

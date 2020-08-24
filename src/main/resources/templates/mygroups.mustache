@@ -1,4 +1,9 @@
-내 그룹들 보여줘ㅏ
+{{#my}}
+    내 그룹들 보여줘ㅏ
+{{/my}}
+{{^my}}
+    전체 그룹 목록
+{{/my}}
 
 <table>
     <tr>
@@ -7,7 +12,12 @@
     {{#mygroupslist}}
 
         <tr>
-            <td><a href="/mygroups/{{id}}"> {{name}} </a></td>
+            {{#my}}
+                <td><a href="/mygroups/{{id}}"> {{name}} </a></td>
+            {{/my}}
+            {{^my}}
+                <td><a href="/groups/{{id}}"> {{name}} </a></td>
+            {{/my}}
         </tr>
 
     {{/mygroupslist}}
