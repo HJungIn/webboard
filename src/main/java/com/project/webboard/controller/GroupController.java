@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
@@ -108,6 +109,20 @@ public class GroupController {
         model.addAttribute("my",false);
         return "mygroups";
     }
+
+    @RequestMapping("/findgroupSubmit")
+    public String findGroupSubmit(Model model,
+                                  @RequestParam("groupname")String groupname){
+
+        List<Group> groupsByNameList = groupService.getGroupsByName(groupname);
+
+        model.addAttribute("mygroupslist",groupsByNameList);
+        model.addAttribute("my",false);
+
+        return "mygroups";
+    }
+
+
 
     @RequestMapping("/groups/{groupid}/join")
     public String joinGroup(Model model, @PathVariable("groupid") Long id){

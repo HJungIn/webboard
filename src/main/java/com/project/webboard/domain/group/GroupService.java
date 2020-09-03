@@ -20,4 +20,8 @@ public class GroupService {
     public List<Group> getAllGroups() {
         return groupRepository.findAll();
     }
+
+    public List<Group> getGroupsByName(String groupname) {
+        return groupRepository.findGroupsByName(groupname);
+    }
 }
