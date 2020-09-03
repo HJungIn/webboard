@@ -1,5 +1,7 @@
-package com.project.webboard.domain;
+package com.project.webboard.domain.post;
 
+import com.project.webboard.domain.user.User;
+import com.project.webboard.domain.group.Group;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

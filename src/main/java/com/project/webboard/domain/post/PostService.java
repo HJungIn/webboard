@@ -1,4 +1,4 @@
-package com.project.webboard.domain;
+package com.project.webboard.domain.post;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

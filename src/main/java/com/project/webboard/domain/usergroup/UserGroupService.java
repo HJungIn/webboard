@@ -1,5 +1,7 @@
-package com.project.webboard.domain;
+package com.project.webboard.domain.usergroup;
 
+import com.project.webboard.domain.group.Group;
+import com.project.webboard.domain.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

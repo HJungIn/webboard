@@ -1,7 +1,7 @@
 package com.project.webboard.config.oauth;
 
 import com.project.webboard.domain.Role;
-import com.project.webboard.domain.User;
+import com.project.webboard.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 

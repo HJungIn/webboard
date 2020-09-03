@@ -1,5 +1,6 @@
-package com.project.webboard.domain;
+package com.project.webboard.domain.user;
 
+import com.project.webboard.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

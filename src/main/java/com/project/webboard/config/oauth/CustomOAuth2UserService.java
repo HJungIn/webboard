@@ -1,7 +1,7 @@
 package com.project.webboard.config.oauth;
 
-import com.project.webboard.domain.User;
-import com.project.webboard.domain.UserRepository;
+import com.project.webboard.domain.user.User;
+import com.project.webboard.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;

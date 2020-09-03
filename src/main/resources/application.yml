@@ -8,9 +8,8 @@ spring:
 #    jdbc:
 #      initialize-schema: always
 #    store-type: jdbc
+server:
+  error:
+    include-exception: true
+    include-stacktrace: always
 
-
-#  servlet:
-#    multipart:
-#      max-file-size: 128MB
-#      max-request-size: 128MB

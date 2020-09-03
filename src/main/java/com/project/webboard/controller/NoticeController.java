@@ -1,8 +1,8 @@
 package com.project.webboard.controller;
 
-import com.project.webboard.domain.Notice;
-import com.project.webboard.domain.NoticeDto;
-import com.project.webboard.domain.NoticeService;
+import com.project.webboard.domain.notice.Notice;
+import com.project.webboard.domain.notice.NoticeDto;
+import com.project.webboard.domain.notice.NoticeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

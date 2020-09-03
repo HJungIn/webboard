@@ -1,6 +1,6 @@
 package com.project.webboard.config.oauth;
 
-import com.project.webboard.domain.User;
+import com.project.webboard.domain.user.User;
 import lombok.Getter;
 
 import java.io.Serializable;

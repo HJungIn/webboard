@@ -1,9 +1,7 @@
-package com.project.webboard.domain;
+package com.project.webboard.domain.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service

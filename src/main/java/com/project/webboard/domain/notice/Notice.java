@@ -1,4 +1,4 @@
-package com.project.webboard.domain;
+package com.project.webboard.domain.notice;
 
 import lombok.AccessLevel;
 import lombok.Getter;

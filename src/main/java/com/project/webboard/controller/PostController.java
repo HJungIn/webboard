@@ -2,7 +2,12 @@ package com.project.webboard.controller;
 
 import com.project.webboard.api.ApiSearchBook;
 import com.project.webboard.config.oauth.SessionUser;
-import com.project.webboard.domain.*;
+import com.project.webboard.domain.group.Group;
+import com.project.webboard.domain.group.GroupService;
+import com.project.webboard.domain.post.Post;
+import com.project.webboard.domain.post.PostService;
+import com.project.webboard.domain.user.User;
+import com.project.webboard.domain.user.UserService;
 import lombok.RequiredArgsConstructor;
 import net.minidev.json.JSONArray;
 import org.springframework.stereotype.Controller;
@@ -12,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
