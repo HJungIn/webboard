@@ -135,4 +135,14 @@ public class GroupController {
 
         return "redirect:/mygroups";
     }
+
+    @RequestMapping("/invitesomeonetogroup/{groupid}")
+    public String invitesomeonetogroup(Model model,
+                                       @PathVariable("groupid") Long groupid){
+
+        String url = "http://localhost:8080/groups/"+groupid;
+        model.addAttribute("url",url);
+
+        return "invitelinkpage";
+    }
 }

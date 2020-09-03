@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // anyRequest : 설정된 값들 이외 나머지 URL //authenticated() : 로그인한 사용자들만 접근 가능하도록 함
                 .and()
                 .authorizeRequests()
-                .antMatchers("/home","/notice","/detailnotice").permitAll()
+                .antMatchers("/home","/notice","/detailnotice", "/groups").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
 //                    .anyRequest().authenticated()
 

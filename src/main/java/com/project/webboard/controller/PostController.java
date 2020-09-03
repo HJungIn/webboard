@@ -37,7 +37,7 @@ public class PostController {
         SessionUser user = (SessionUser)httpSession.getAttribute("user");
 
         Post post = postService.getPost(postid);
-        if(post.getPublisher().getEmail().equals(user.getEmail()))
+        if(user != null && post.getPublisher().getEmail().equals(user.getEmail()))
             model.addAttribute("samePublisher", true);
 
         model.addAttribute("groupid", groupid);
