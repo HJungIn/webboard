@@ -33,9 +33,10 @@ public class PostController {
     private String detailPost(Model model,
                               @PathVariable("groupid") Long groupid,
                               @PathVariable("postid") Long postid ){
-
+        //현재 로그인 중인 사용자
         SessionUser user = (SessionUser)httpSession.getAttribute("user");
 
+        //postid로 해당 POST를 가져와 현재 로그인중인 사용자와 POST를 쓴 사용자가 같은지 확인
         Post post = postService.getPost(postid);
         if(user != null && post.getPublisher().getEmail().equals(user.getEmail()))
             model.addAttribute("samePublisher", true);
@@ -43,21 +44,19 @@ public class PostController {
         model.addAttribute("groupid", groupid);
         model.addAttribute("postById", post);
 
+        //참조된 도서들이 없을 때는 그대로 return한다
         if(post.getBooks().size()==0)
             return "detailpost";
 
-
+        //참조된 도서들이 있을 때 openApi에서 해당 isbn에 맞는 책들을 jsonArray로 받아 하나씩 연결해준 뒤 view에 전달한다
         ApiSearchBook apiSearchBook = new ApiSearchBook();
         List<String> books = post.getBooks();
         JSONArray jsonArrayList = apiSearchBook.searchBook(books.get(0));
 
         for(int i=1;i<books.size();i++){
-//            System.out.println("book = " + books.get(i));
             jsonArrayList.merge(apiSearchBook.searchBook(books.get(i)));
         }
-
         model.addAttribute("jsonbooks", jsonArrayList);
-//        System.out.println("                          detail : jsonArrayList = " + jsonArrayList);
 
         return "detailpost";
     }
